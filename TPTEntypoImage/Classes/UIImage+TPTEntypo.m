@@ -298,7 +298,6 @@ NSString *const EntypoSocialGoogleCircles = @"\uF351";
 NSString *const EntypoSocialVk = @"\uF354";
 NSString *const EntypoSocialSmashing = @"\uF357";
 
-
 + (UIImage *)imageWithEntypoNamed:(NSString *)iconName
                            ofSize:(CGFloat)size
 {
@@ -311,7 +310,16 @@ NSString *const EntypoSocialSmashing = @"\uF357";
                           colored:(UIColor *)color
                            ofSize:(CGFloat)size
 {
-    UIFont *font = [UIFont fontWithName:@"Entypo" size:size];
+    NSString *fontName = @"Entypo";
+    
+    unichar ch = [iconName characterAtIndex:0];
+    
+    if (ch > 0xf2ff && ch < 0xf358)
+    {
+        fontName = @"EntypoSocial";
+    }
+    
+    UIFont *font = [UIFont fontWithName:fontName size:size];
     
     NSDictionary *attributes = @{NSFontAttributeName : font,
                                  NSForegroundColorAttributeName : color};

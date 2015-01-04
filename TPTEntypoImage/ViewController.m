@@ -23,17 +23,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIImage *paperPlaneImage = [UIImage imageWithEntypoNamed:EntypoPaperPlane
+    // Social Icon Set
+    UIImage *githubImage = [UIImage imageWithEntypoNamed:EntypoSocialGithub
                                                 colored:[UIColor purpleColor]
                                                  ofSize:50.0f];
     
-    self.smallImage.image = paperPlaneImage;
+    self.smallImage.image = githubImage;
     
+    
+    // Regular Icon Set
     UIImage *usersImage = [UIImage imageWithEntypoNamed:EntypoUsers
                                                      colored:[UIColor darkGrayColor]
                                                       ofSize:100.0f];
     
     self.largeImage.image = usersImage;
+    
+    
+    UIImage *addImage = [UIImage imageWithEntypoNamed:EntypoCircledPlus
+                                              colored:[UIColor greenColor]
+                                               ofSize:36.0f];
+    
+    [self.button setImage:addImage forState:UIControlStateNormal];
     
 }
 
